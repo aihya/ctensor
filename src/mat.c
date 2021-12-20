@@ -2,7 +2,7 @@
  * @ Author: Abdechahid Ihya
  * @ Create Time: 2021-12-20 22:21:29
  * @ Modified by: Abdechahid Ihya
- * @ Modified time: 2021-12-21 00:23:06
+ * @ Modified time: 2021-12-21 00:30:43
  */
 
 #include "mat.h"
@@ -63,13 +63,4 @@ t_matrix    *matnd(int ndims, ...)
 t_matrix    *mat2d(int n, int m)
 {
     return (matnd(2, n, m));
-}
-
-int main(int argc, char *argv[])
-{
-    t_matrix    *mat;
-
-    mat = mat2d(4, 0);
-    printf("%zu\n", mat->size);
-    return (0);
 }

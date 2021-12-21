@@ -2,11 +2,13 @@
  * @ Author: Abdechahid Ihya
  * @ Create Time: 2021-12-21 00:35:58
  * @ Modified by: Abdechahid Ihya
- * @ Modified time: 2021-12-21 00:47:38
+ * @ Modified time: 2021-12-21 01:19:35
  */
 
 #include "cmatrix.h"
 
+// Multiply the dimentions all together.
+// Mainly used for allocation purposes to get the matrixs' vector size.
 size_t      __mult_dims(int ndims, int *dims)
 {
     int     i;
@@ -19,6 +21,8 @@ size_t      __mult_dims(int ndims, int *dims)
     return (total);
 }
 
+// Creates a N dimentional matrix.
+// If allocation fails at any point, return NULL.
 t_matrix    *__alloc_matnd(int ndims, va_list ap)
 {
     t_matrix    *mat;

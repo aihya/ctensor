@@ -2,7 +2,7 @@
  * @ Author: Abdechahid Ihya
  * @ Create Time: 2021-12-20 22:23:40
  * @ Modified by: Abdechahid Ihya
- * @ Modified time: 2021-12-21 00:46:51
+ * @ Modified time: 2021-12-21 00:59:56
  */
 
 #ifndef ARRAY_H
@@ -14,6 +14,7 @@
 # include <limits.h>
 # include <assert.h>
 # include <errno.h>
+# include <pthread.h>
 
 # define MAX_NUM_ARGS 5
 

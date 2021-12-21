@@ -2,7 +2,7 @@
  * @ Author: Abdechahid Ihya
  * @ Create Time: 2021-12-20 22:23:40
  * @ Modified by: Abdechahid Ihya
- * @ Modified time: 2021-12-21 02:04:50
+ * @ Modified time: 2021-12-21 02:12:09
  */
 
 #ifndef ARRAY_H
@@ -26,7 +26,7 @@ typedef enum    e_dtype
     DOUBLE,
 }               t_dtype;
 
-typedef struct  s_matrix
+typedef struct  s_tensor
 {
     size_t      size;
     int         *dims;

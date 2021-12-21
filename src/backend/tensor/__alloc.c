@@ -2,7 +2,7 @@
  * @ Author: Abdechahid Ihya
  * @ Create Time: 2021-12-21 00:35:58
  * @ Modified by: Abdechahid Ihya
- * @ Modified time: 2021-12-21 02:04:25
+ * @ Modified time: 2021-12-21 02:19:38
  */
 
 #include "ctensor.h"
@@ -21,7 +21,7 @@ size_t      __mult_dims(int ndims, int *dims)
     return (total);
 }
 
-// Creates a N dimentional matrix.
+// Creates a tensor.
 // If allocation fails at any point, return NULL.
 Tensor    *__alloc_tensor(int ndims, va_list ap)
 {

@@ -2,7 +2,7 @@
  * @ Author: Abdechahid Ihya
  * @ Create Time: 2021-12-20 22:23:40
  * @ Modified by: Abdechahid Ihya
- * @ Modified time: 2021-12-21 00:59:56
+ * @ Modified time: 2021-12-21 02:04:50
  */
 
 #ifndef ARRAY_H
@@ -17,23 +17,24 @@
 # include <pthread.h>
 
 # define MAX_NUM_ARGS 5
+# define THREADS_CAP 4
 
-typedef enum    e_datatype
+typedef enum    e_dtype
 {
     INT,
     FLOAT,
     DOUBLE,
-}               t_datatype;
+}               t_dtype;
 
 typedef struct  s_matrix
 {
     size_t      size;
     int         *dims;
     void        *vect;
-}               t_matrix;
+}               Tensor;
 
 // t_vector    *__alloc_vector(size_t vect_size);
-t_matrix    *__alloc_matnd(int ndims, va_list ap);
+Tensor    *__alloc_tensor(int ndims, va_list ap);
 
 
 #endif

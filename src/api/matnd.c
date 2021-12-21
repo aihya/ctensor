@@ -2,23 +2,23 @@
  * @ Author: Abdechahid Ihya
  * @ Create Time: 2021-12-20 22:21:29
  * @ Modified by: Abdechahid Ihya
- * @ Modified time: 2021-12-21 01:02:16
+ * @ Modified time: 2021-12-21 02:04:07
  */
 
-#include "cmatrix.h"
+#include "ctensor.h"
 
-t_matrix    *matnd(int ndims, ...)
+Tensor    *tensor(int ndims, ...)
 {
-    t_matrix    *mat;
+    Tensor    *mat;
     va_list     ap;
 
     va_start(ap, ndims);
-    mat = __alloc_matrix(ndims, ap);
+    mat = __alloc_tensor(ndims, ap);
     va_end(ap);
     return (mat);
 }
 
-t_matrix    *mat2d(int n, int m)
+Tensor    *matrix(int n, int m)
 {
-    return (matnd(2, n, m));
+    return (tensor(2, n, m));
 }

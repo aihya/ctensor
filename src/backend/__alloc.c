@@ -2,10 +2,10 @@
  * @ Author: Abdechahid Ihya
  * @ Create Time: 2021-12-21 00:35:58
  * @ Modified by: Abdechahid Ihya
- * @ Modified time: 2021-12-21 01:19:35
+ * @ Modified time: 2021-12-21 02:04:25
  */
 
-#include "cmatrix.h"
+#include "ctensor.h"
 
 // Multiply the dimentions all together.
 // Mainly used for allocation purposes to get the matrixs' vector size.
@@ -23,14 +23,14 @@ size_t      __mult_dims(int ndims, int *dims)
 
 // Creates a N dimentional matrix.
 // If allocation fails at any point, return NULL.
-t_matrix    *__alloc_matnd(int ndims, va_list ap)
+Tensor    *__alloc_tensor(int ndims, va_list ap)
 {
-    t_matrix    *mat;
+    Tensor    *mat;
     int         i;
 
     if (ndims > MAX_NUM_ARGS || ndims <= 0)
         return (NULL);
-    mat = (t_matrix *)malloc(sizeof(t_matrix));
+    mat = (Tensor *)malloc(sizeof(Tensor));
     if (mat == NULL)
         return (NULL);
     mat->dims = (int *)malloc(sizeof(int) * ndims);

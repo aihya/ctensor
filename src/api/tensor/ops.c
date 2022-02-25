@@ -1,13 +1,14 @@
-/*
- * @ Author: Abdechahid Ihya
- * @ Create Time: 2021-12-21 01:02:22
- * @ Modified by: Abdechahid Ihya
- * @ Modified time: 2021-12-21 02:03:55
+/**
+ * File              : ops.c
+ * Author            : Abdechahid Ihya <abdechahid.ihya@hotmail.com>
+ * Date              : 25.02.2022
+ * Last Modified Date: 25.02.2022
+ * Last Modified By  : Abdechahid Ihya <abdechahid.ihya@hotmail.com>
  */
 
 #include "ctensor.h"
 
-Tensor    *add(Tensor *mat1, Tensor *mat2)
+Tensor    *add(Tensor *tensor1, Tensor *tensor2)
 {
     return (NULL);
 }

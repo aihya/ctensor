@@ -1,8 +1,9 @@
-/*
- * @ Author: Abdechahid Ihya
- * @ Create Time: 2021-12-20 22:21:29
- * @ Modified by: Abdechahid Ihya
- * @ Modified time: 2021-12-21 02:22:38
+/**
+ * File              : init.c
+ * Author            : Abdechahid Ihya <abdechahid.ihya@hotmail.com>
+ * Date              : 25.02.2022
+ * Last Modified Date: 25.02.2022
+ * Last Modified By  : Abdechahid Ihya <abdechahid.ihya@hotmail.com>
  */
 
 #include "ctensor.h"

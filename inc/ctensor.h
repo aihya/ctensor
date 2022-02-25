@@ -1,8 +1,9 @@
-/*
- * @ Author: Abdechahid Ihya
- * @ Create Time: 2021-12-20 22:23:40
- * @ Modified by: Abdechahid Ihya
- * @ Modified time: 2021-12-21 02:12:09
+/**
+ * File              : ctensor.h
+ * Author            : Abdechahid Ihya <abdechahid.ihya@hotmail.com>
+ * Date              : 25.02.2022
+ * Last Modified Date: 25.02.2022
+ * Last Modified By  : Abdechahid Ihya <abdechahid.ihya@hotmail.com>
  */
 
 #ifndef ARRAY_H
@@ -15,26 +16,30 @@
 # include <assert.h>
 # include <errno.h>
 # include <pthread.h>
+# include <emmintrin.h>
 
 # define MAX_NUM_ARGS 5
 # define THREADS_CAP 4
 
-typedef enum    e_dtype
+union u_datatype
 {
-    INT,
-    FLOAT,
-    DOUBLE,
-}               t_dtype;
+	int    dt_int;
+	float  dt_float;
+	double dt_double;
+} t_dt;
 
-typedef struct  s_tensor
+typedef struct s_array
 {
-    size_t      size;
-    int         *dims;
-    void        *vect;
-}               Tensor;
+	void   *array;
+	size_t size;
+} t_array;
 
-// t_vector    *__alloc_vector(size_t vect_size);
-Tensor    *__alloc_tensor(int ndims, va_list ap);
+typedef struct s_tensor
+{
+    unsigned int *shape;
+	t_array      array;
+} Tensor;
 
+Tensor *__alloc_tensor(int ndims, va_list ap);
 
 #endif

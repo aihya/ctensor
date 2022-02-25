@@ -1,15 +1,17 @@
-/*
- * @ Author: Abdechahid Ihya
- * @ Create Time: 2021-12-21 00:35:58
- * @ Modified by: Abdechahid Ihya
- * @ Modified time: 2021-12-21 02:19:38
+/**
+ * File              : __alloc.c
+ * Author            : Abdechahid Ihya <abdechahid.ihya@hotmail.com>
+ * Date              : 25.02.2022
+ * Last Modified Date: 25.02.2022
+ * Last Modified By  : Abdechahid Ihya <abdechahid.ihya@hotmail.com>
  */
 
 #include "ctensor.h"
 
-// Multiply the dimentions all together.
-// Mainly used for allocation purposes to get the matrixs' vector size.
-size_t      __mult_dims(int ndims, int *dims)
+/* Multiply the dimentions all together.
+ * Mainly used for allocation purposes to get the tensors vector size.
+ */
+size_t      __array_size(int nd, int *shape)
 {
     int     i;
     size_t  total;
@@ -21,34 +23,43 @@ size_t      __mult_dims(int ndims, int *dims)
     return (total);
 }
 
-// Creates a tensor.
-// If allocation fails at any point, return NULL.
-Tensor    *__alloc_tensor(int ndims, va_list ap)
+/* Creates a tensor.
+ * If allocation fails at any point, return NULL.
+ */
+Tensor *__alloc_tensor(int ndims, va_list ap)
 {
-    Tensor    *mat;
-    int         i;
+    Tensor	*tensor;
+    int		i;
 
+	// Check if number of arguments is within the proper window
     if (ndims > MAX_NUM_ARGS || ndims <= 0)
         return (NULL);
-    mat = (Tensor *)malloc(sizeof(Tensor));
-    if (mat == NULL)
+
+	// Allocate tensor memory
+    tensor = (Tensor *)malloc(sizeof(Tensor));
+    if (tensor == NULL)
         return (NULL);
-    mat->dims = (int *)malloc(sizeof(int) * ndims);
-    if (mat->dims == NULL)
+
+	// Allocate shape memory
+    tensor->shape = (int *)malloc(sizeof(int) * ndims);
+    if (tensor->shape == NULL)
     {
-        free(mat);
+        free(tensor);
         return (NULL);
     }
+
+	// Fill the shape array with ap content
     i = -1;
     while (++i < ndims)
-        mat->dims[i] = va_arg(ap, int);
-    mat->size = __mult_dims(ndims, mat->dims);
-    mat->vect = malloc(sizeof(int) * mat->size);
-    if (mat->vect == NULL)
+        tensor->shape[i] = va_arg(ap, int);
+
+    tensor->size = __mult_dims(ndims, tensor->shape);
+    tensor->array = malloc(sizeof(int) * tensor->size);
+    if (tensor->array == NULL)
     {
-        free(mat->dims);
-        free(mat);
+        free(tensor->dims);
+        free(tensor);
         return (NULL);
     }
-    return (mat);
+    return (tensor);
 }

@@ -14,13 +14,13 @@
 size_t      __array_size(int nd, int *shape)
 {
     int     i;
-    size_t  total;
+    size_t  size;
 
-    total = dims[0];
+    size = shape[0];
     i = 0;
     while (++i < ndims)
-        total *= dims[i];
-    return (total);
+        size *= shape[i];
+    return (size);
 }
 
 /* Creates a tensor.
@@ -63,3 +63,4 @@ Tensor *__alloc_tensor(int ndims, va_list ap)
     }
     return (tensor);
 }
+

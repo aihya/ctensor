@@ -10,11 +10,11 @@
 
 Tensor *tensor(int ndims, ...)
 {
-	Tensor	*tensor;
+	Tensor	*_tensor;
 	va_list	ap;
 
 	va_start(ap, ndims);
-	tensor = __alloc_tensor(ndims, ap);
+	_tensor = __alloc_tensor(ndims, ap);
 	va_end(ap);
-	return (tensor);
+	return (_tensor);
 }

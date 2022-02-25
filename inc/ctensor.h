@@ -40,6 +40,10 @@ typedef struct s_tensor
 	t_array      array;
 } Tensor;
 
+// Backend functions
 Tensor *__alloc_tensor(int ndims, va_list ap);
+
+// Api functions
+Tensor *tensor(int ndims, ...)
 
 #endif
